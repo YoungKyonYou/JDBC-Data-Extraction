@@ -33,6 +33,7 @@ public class Main {
 
             String query = "SELECT * FROM TRACKING";
 
+
             PreparedStatement pstat = null;
 
             List<String> wblNoDatas = new ArrayList<>();
@@ -41,8 +42,10 @@ public class Main {
                     pstat = conn.prepareStatement(query);
                     pstat.executeQuery();
                     wblNoDatas.add(wblNoList.get(i));
+                    System.out.println("i:"+i);
+                    pstat.close();
                 }catch(Exception e){
-
+                    e.printStackTrace();
                 }
             }
             for (String s : wblNoDatas) {
